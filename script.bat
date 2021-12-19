@@ -1,1 +1,1 @@
-"C:\xampp\php\php.exe" -f "C:\xampp\htdocs\rtCamp\Assignment1\autoMailSender.php"
+"C:\xampp\php\php.exe" -f "autoMailSender.php"
