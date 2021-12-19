@@ -8,8 +8,11 @@
                 $lname = $_POST['lname'] ;
                 $email = $_POST['email'] ;              
                 // connect database
-                $mysqli=NEW MySQLi('localhost','root','','rtcamp');
+                //$mysqli=NEW MySQLi('localhost','root','','rtcamp');
                 // Checking valid user
+                
+                // Remote Database Connection
+                $mysqli=NEW MySQLi('remotemysql.com','4wBXWo57I5','In5xZmaTxC','4wBXWo57I5');
                 $check=$mysqli->query("SELECT * FROM visitor_det WHERE fname='$fname' AND lname='$lname' AND email='$email'");
                 if(mysqli_num_rows($check) == 1)
                 {
