@@ -40,10 +40,16 @@ $mysqli=NEW MySQLi('remotemysql.com','4wBXWo57I5','In5xZmaTxC','4wBXWo57I5');
     $check=$mysqli->query("SELECT * FROM visitor_det WHERE email='$email'");
     if(mysqli_num_rows($check) == 0)
     {     
-      // $detail=array($fname,$lname,$email,$vkey);
-      // $_SESSION['arr'] = $detail;
+     
+      
+        //Inserting element
+        $insert=$mysqli->query("INSERT INTO visitor_det(fname,lname,email,vkey,action)VALUES('$fname','$lname','$email','$vkey','$action')");
+        if($insert)
+        {
+           // $detail=array($fname,$lname,$email,$vkey);
+          // $_SESSION['arr'] = $detail;
 
-      $_SESSION['fname']=$fname;
+           $_SESSION['fname']=$fname;
       $_SESSION['lname']=$lname;
       // echo "<p>SUCCESS</p>";
       // Sending email
@@ -53,21 +59,10 @@ $mysqli=NEW MySQLi('remotemysql.com','4wBXWo57I5','In5xZmaTxC','4wBXWo57I5');
       $sender ="From: sanapprasad2021@gmail.com\r\n";
       $sender .="MIME-Version: 1.0"."\r\n";
       $sender .="Content-type:text/html;charset=UTF-8"."\r\n";
-      $mail=mail($to,$subject,$message,$sender);
-      if(!$mail){
-        header('location:index.php');
-        $firstname=$fname;
-        $lastname=$lname;
-        $emailErr="You enter email is not valid !";
-      }else{
-
-        //Inserting element
-        $insert=$mysqli->query("INSERT INTO visitor_det(fname,lname,email,vkey,action)VALUES('$fname','$lname','$email','$vkey','$action')");
-        if($insert)
-        {
+      mail($to,$subject,$message,$sender);
           header('location:thankyou.php');
         }
-      }
+      
     }
     else
     {
