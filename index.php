@@ -40,29 +40,33 @@ $mysqli=NEW MySQLi('remotemysql.com','4wBXWo57I5','In5xZmaTxC','4wBXWo57I5');
     $check=$mysqli->query("SELECT * FROM visitor_det WHERE email='$email'");
     if(mysqli_num_rows($check) == 0)
     {     
-      //Inserting element
-      $insert=$mysqli->query("INSERT INTO visitor_det(fname,lname,email,vkey,action)VALUES('$fname','$lname','$email','$vkey','$action')");
-      if($insert)
-      {
-        // $detail=array($fname,$lname,$email,$vkey);
-        // $_SESSION['arr'] = $detail;
+      // $detail=array($fname,$lname,$email,$vkey);
+      // $_SESSION['arr'] = $detail;
 
-        $_SESSION['fname']=$fname;
-        $_SESSION['lname']=$lname;
-        // echo "<p>SUCCESS</p>";
-        // Sending email
-        $to=$email;
-        $subject="Email Verification";
-        $message="<h5>Hey $fname $lname, you're almost ready to start enjoing<strong> XKCD Comics.</strong>Simply verify your email address.</h5><br><br><br><h3>Verification Key:<br>$vkey</h3><br><br><br><h5>Thank you.</h5>";
-        $sender ="From: sanapprasad2021@gmail.com\r\n";
-        $sender .="MIME-Version: 1.0"."\r\n";
-        $sender .="Content-type:text/html;charset=UTF-8"."\r\n";
-        mail($to,$subject,$message,$sender);
-        header('location:thankyou.php');
-      }
-      else
-      {
-        echo $mysqli->error;
+      $_SESSION['fname']=$fname;
+      $_SESSION['lname']=$lname;
+      // echo "<p>SUCCESS</p>";
+      // Sending email
+      $to=$email;
+      $subject="Email Verification";
+      $message="<h5>Hey $fname $lname, you're almost ready to start enjoing<strong> XKCD Comics.</strong>Simply verify your email address.</h5><br><br><br><h3>Verification Key:<br>$vkey</h3><br><br><br><h5>Thank you.</h5>";
+      $sender ="From: sanapprasad2021@gmail.com\r\n";
+      $sender .="MIME-Version: 1.0"."\r\n";
+      $sender .="Content-type:text/html;charset=UTF-8"."\r\n";
+      $mail=mail($to,$subject,$message,$sender);
+      if(!$mail){
+        header('location:index.php');
+        $firstname=$fname;
+        $lastname=$lname;
+        $emailErr="You enter email is not valid !";
+      }else{
+
+        //Inserting element
+        $insert=$mysqli->query("INSERT INTO visitor_det(fname,lname,email,vkey,action)VALUES('$fname','$lname','$email','$vkey','$action')");
+        if($insert)
+        {
+          header('location:thankyou.php');
+        }
       }
     }
     else
