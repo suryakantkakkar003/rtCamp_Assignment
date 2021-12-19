@@ -5,7 +5,7 @@ class AutoSendingMail{
         // $to="fmc202158@zealeducation.com";
         $to=implode("",$receiver);
         $subject="XKCD Comics";
-        $message="This is lovely XKCD comics picture.<br><img src=".$urlImg."><br><br><br><br><a href='http://localhost/rtCamp/Assignment1/unsubscribe.php'>
+        $message="This is lovely XKCD comics picture.<br><img src=".$urlImg."><br><br><br><br><a href='unsubscribe.php'>
         Unsubscribe or change your email preferences.</a>";
         $sender = "From: sanapprasad2021@gmail.com\r\n";
         $sender .= "MIME-Version: 1.0"."\r\n";
