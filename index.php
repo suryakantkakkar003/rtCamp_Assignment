@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require_once "dbconnection.php";      
+//   require_once "dbconnection.php";      
   $fname=$lname=$email="";
   $fnameErr=$lnameErr=$emailErr=$vcodeErr=NULL;
   $firstname=$lastname=$emailid="";
@@ -24,8 +24,11 @@
   }
   else
   {
-    // connect database
-    $mysqli=NEW MySQLi('localhost','root','','rtcamp');
+// Development Connection
+// $mysqli=NEW MySQLi('localhost','root','','rtcamp');
+
+// Remote Database Connection
+$mysqli=NEW MySQLi('remotemysql.com','4wBXWo57I5','In5xZmaTxC','4wBXWo57I5');
     // sanitizing data SQL injection
     $fname=$mysqli->real_escape_string($fname);
     $lname=$mysqli->real_escape_string($lname);
