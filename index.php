@@ -1,6 +1,6 @@
 <?php
     session_start();
-//     require_once 'databaseConnection.php';
+    require_once 'databaseConnection.php';
 //     require_once 'sendMail.php';
 
     $fname=$lname=$email="";
