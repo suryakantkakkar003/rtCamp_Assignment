@@ -1,5 +1,5 @@
 <?php
 
-    $mysqli=NEW MySQLi('remotemysql.com','4wBXWo57I5','In5xZmaTxC','4wBXWo57I5');
+    $mysqli=NEW MySQLi('sql6.freemysqlhosting.net','sql6466035','92rRMKUQjf','sql6466035');
 
 ?>
