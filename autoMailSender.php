@@ -7,7 +7,7 @@ class AutoSendingMail{
         $subject="XKCD Comics";
         $message="This is lovely XKCD comics picture.<br><img src=".$urlImg."><br><br><br><br><a href='unsubscribe.php'>
         Unsubscribe or change your email preferences asaas.</a>";
-        $sender = "From: suryakantkakkar@gmail.com\r\n";
+        $sender = "From: mailfortasting@gmail.com\r\n";
         $sender .= "MIME-Version: 1.0"."\r\n";
         $sender .="Content-type:text/html;charset=UTF-8"."\r\n";
         mail($to,$subject,$message,$sender);
