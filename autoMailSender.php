@@ -7,7 +7,7 @@ class AutoSendingMail{
         $subject="XKCD Comics";
         $message="This is lovely XKCD comics picture.<br><img src=".$urlImg."><br><br><br><br><a href='unsubscribe.php'>
         Unsubscribe or change your email preferences asaas.</a>";
-        $sender = "From: sanapprasad2021@gmail.com\r\n";
+        $sender = "From: suryakantkakkar@gmail.com\r\n";
         $sender .= "MIME-Version: 1.0"."\r\n";
         $sender .="Content-type:text/html;charset=UTF-8"."\r\n";
         mail($to,$subject,$message,$sender);
@@ -17,7 +17,7 @@ class AutoSendingMail{
 // $mysqli=NEW MySQLi('localhost','root','','rtcamp');
 
 // Remote Database Connection
-$mysqli=NEW MySQLi('remotemysql.com','4wBXWo57I5','In5xZmaTxC','4wBXWo57I5');
+$mysqli=NEW MySQLi('sql6.freemysqlhosting.net','sql6466035','92rRMKUQjf','sql6466035');
 $asm=new AutoSendingMail();
 $email=$mysqli->query("SELECT email FROM visitor_det WHERE action='start'");
 
